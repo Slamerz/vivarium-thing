@@ -40,7 +40,6 @@ jobs:
 
           if [ ! -f "$ELF" ]; then
             echo "Expected firmware ELF was not found: $ELF"
-            echo "Files that were built:"
             find target -type f | sort
             exit 1
           fi
