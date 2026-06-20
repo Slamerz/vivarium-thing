@@ -10,9 +10,9 @@ fn main() -> ! {
 
     // Built-in Uno/SunFounder LED: digital pin 13.
     let mut led = pins.d13.into_output();
-    led.toggle();
-    loop {
     
+    loop {
+        led.toggle();
         arduino_hal::delay_ms(1000);
     }
 }

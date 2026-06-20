@@ -85,5 +85,6 @@ jobs:
             dist/vivarium-uno.hex \
             dist/vivarium-uno.elf \
             dist/vivarium-uno.hex.sha256 \
+            flash.ps1 \
             --verify-tag \
             --generate-notes
