@@ -66,6 +66,11 @@ jobs:
       contents: write
 
     steps:
+      - name: Check out tagged commit
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
       - name: Download firmware artifact
         uses: actions/download-artifact@v5
         with:
