@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.cargo.extraArgs": ["-Z", "build-std=core"],
+  "rust-analyzer.check.extraArgs": ["-Z", "build-std=core"],
+  "rust-analyzer.cargo.buildScripts.enable": true
+}

@@ -12,7 +12,6 @@ bench = false
 
 [dependencies]
 panic-halt = "1.0.0"
-ufmt = "0.2.0"
 nb = "1.1.0"
 embedded-hal = "1.0"
 
@@ -24,8 +23,8 @@ features = ["arduino-uno"]
 # Configure the build for minimal size - AVRs have very little program memory
 [profile.dev]
 panic = "abort"
-lto = true
 opt-level = "s"
+debug = true
 
 [profile.release]
 panic = "abort"

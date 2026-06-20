@@ -887,7 +887,6 @@ dependencies = [
  "embedded-hal 1.0.0",
  "nb 1.1.0",
  "panic-halt",
- "ufmt",
 ]
 
 [[package]]
