@@ -1,6 +1,6 @@
 [package]
 name = "vivarium"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jacob Walker <jacobdawalker@gmail.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -14,6 +14,7 @@ bench = false
 panic-halt = "1.0.0"
 nb = "1.1.0"
 embedded-hal = "1.0"
+avr-device = "0.8.1"
 
 [dependencies.arduino-hal]
 git = "https://github.com/rahix/avr-hal"
@@ -24,7 +25,9 @@ features = ["arduino-uno"]
 [profile.dev]
 panic = "abort"
 opt-level = "s"
-debug = true
+debug = false
+codegen-units = 1
+lto = true
 
 [profile.release]
 panic = "abort"
