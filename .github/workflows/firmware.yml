@@ -33,34 +33,23 @@ jobs:
         run: cargo build --release --locked --target avr-none --bin vivarium
 
       - name: Package firmware
+        shell: bash
         run: |
           set -euo pipefail
 
           ELF="target/avr-none/release/vivarium.elf"
 
-          if [ ! -f "$ELF" ]; then
-            echo "Expected firmware ELF was not found: $ELF"
-            find target -type f | sort
-            exit 1
-          fi
+          test -f "$ELF"
 
           mkdir -p dist
 
-          avr-objcopy \
-            -O ihex \
-            -R .eeprom \
-            "$ELF" \
-            dist/vivarium-uno.hex
+          avr-objcopy -O ihex -R .eeprom "$ELF" "dist/vivarium-uno.hex"
 
-          cp "$ELF" dist/vivarium-uno.elf
+          install -m 0644 "$ELF" "dist/vivarium-uno.elf"
 
-          avr-size \
-            --mcu=atmega328p \
-            --format=avr \
-            "$ELF"
+          avr-size --mcu=atmega328p --format=avr "$ELF"
 
-          sha256sum dist/vivarium-uno.hex > dist/vivarium-uno.hex.sha256
-            dist/vivarium.elf \
-            dist/vivarium.hex.sha256 \
-            --verify-tag \
-            --generate-notes
+          sha256sum "dist/vivarium-uno.hex" > "dist/vivarium-uno.hex.sha256"
+
+          echo "Release files:"
+          ls -lah dist
