@@ -881,7 +881,7 @@ checksum = "77439c1b53d2303b20d9459b1ade71a83c716e3f9c34f3228c00e6f185d6c002"
 
 [[package]]
 name = "vivarium"
-version = "0.2.0"
+version = "0.2.1"
 dependencies = [
  "arduino-hal",
  "avr-device",
